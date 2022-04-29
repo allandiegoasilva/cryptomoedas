@@ -1,4 +1,5 @@
 
+import 'package:cryptomoedas/repositories/moeda_repository.dart';
 import 'package:flutter/material.dart';
 
 
@@ -9,13 +10,24 @@ class CryptoPage extends StatelessWidget
   @override 
   Widget build(BuildContext context )
   {
+
+    final moedas = MoedaRepository.moedas; 
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Crypto Moedas"),
       ),
-      body: Center(
-        child: Text("Teste body"),
-      ),
+      body: ListView.separated(itemBuilder: (BuildContext context, int moeda){
+        return ListTile(
+          leading: Image.asset(moedas[moeda].icone),
+          title: Text(moedas[moeda].nome),
+          trailing: Text(moedas[moeda].preco.toString()),
+        ); 
+      }, 
+                               padding: EdgeInsets.all(16),
+                               separatorBuilder: (_,__) => Divider(), 
+                               itemCount: moedas.length
+                              )
     );
   }
 }
