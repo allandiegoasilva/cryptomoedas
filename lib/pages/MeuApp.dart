@@ -13,7 +13,8 @@ class MeuApp extends StatelessWidget
       title: "Crypto Base",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.black
+        backgroundColor: Colors.indigo,
+        primaryColor: Colors.indigo[800]
       ),
       home: CryptoPage(), 
     );

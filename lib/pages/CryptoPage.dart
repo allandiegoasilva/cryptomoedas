@@ -2,6 +2,8 @@ import 'package:cryptomoedas/repositories/moeda_repository.dart';
 import 'package:cryptomoedas/models/moeda.dart'; 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart'; 
+import 'package:cryptomoedas/pages/DetalhesMoedaPage.dart'; 
+
 
 class CryptoPage extends StatefulWidget 
 {
@@ -45,6 +47,14 @@ class _CryptoPageState extends State<CryptoPage> {
     }
   }
 
+  verDetalhes(Moeda moeda){
+
+      Navigator.push(context, MaterialPageRoute(
+          builder: (_) => DetalhesMoedaPage(moeda: moeda)
+         )
+        );
+  }
+
   Widget build(BuildContext context )
   {
     return Scaffold(
@@ -80,21 +90,13 @@ class _CryptoPageState extends State<CryptoPage> {
               
             });
           },
-          onTap: (){
-            if(selecionadas.contains(moedas[moeda]))
-            {
-              setState(() {
-                selecionadas.remove(moedas[moeda]); 
-              });
-            }
-          },
+          onTap: () => verDetalhes(moedas[moeda]),
         ); 
       }, 
                                padding: EdgeInsets.all(16),
                                separatorBuilder: (_,__) => Divider(), 
                                itemCount: moedas.length
-                              )
-      ,
+                              ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: selecionadas.isNotEmpty ? FloatingActionButton.extended(
         onPressed: () { },

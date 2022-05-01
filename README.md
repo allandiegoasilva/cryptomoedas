@@ -3,7 +3,7 @@
 Aprendendo flutter.
 
 
-# Ciclo de vida do Flutter 
+### Ciclo de vida do Flutter 
 
 Ao mutar o estado com setState o 
 flutter chama o build novamente. 
@@ -29,3 +29,13 @@ flutter chama o build novamente.
 
  ### Método build com uma melhor performace. 
  https://www.youtube.com/watch?v=2gH8izRD-Io&list=PL_wKlpKIC9vWCRIgMvH8pbRmX8XVouRv1&index=7
+
+
+### Navegação entre rotas 
+
+Para a navegação entre rotas no flutter
+é utilizado o ```Navigator.push(context, (_) => meuWidgetPagina())``` 
+feito isso é possível até passar dados através da rota. 
+
+### Formulários 
+
